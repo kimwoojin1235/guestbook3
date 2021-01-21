@@ -23,7 +23,6 @@
 				<tr>
 					<td colspan="4"> <button type="submit" >확인</button></td>
 				</tr>
-				<input type="hidden" name="action"value="add"><br>
 			</table>
 		</form>
 		<br>
