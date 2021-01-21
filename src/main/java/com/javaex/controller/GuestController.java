@@ -23,9 +23,12 @@ public class GuestController {
 		List<GuestVo> guestlist = guestDao.getList();
 		model.addAttribute("glist",guestlist);
 		return "addList";
+		//Model를 사용하여서 list에 정보를 보내준다.
 	}
 	@RequestMapping(value = "/write",method = {RequestMethod.GET,RequestMethod.POST})
 	public String write(@ModelAttribute GuestVo guestVo) {
+		//@ModelAttribute를 사용하여서 vo의 값을가져온뒤 입력을함
+		//리스트와 같이 있있어Model을 사용할 필요x
 		System.out.println("등록");
 		System.out.println(guestVo.toString());
 		GuestDao guestDao = new GuestDao();
@@ -36,6 +39,7 @@ public class GuestController {
 	@RequestMapping(value = "/deleteForm",method = {RequestMethod.GET,RequestMethod.POST})
 	public String deleteForm() {
 		System.out.println("삭제 폼입니다.");
+		//삭제 창으로 보내준다.
 		return "deleteForm";
 	}
 	@RequestMapping(value = "/delete",method = {RequestMethod.GET,RequestMethod.POST})
@@ -43,12 +47,12 @@ public class GuestController {
 		System.out.println("삭제입니다");
 		GuestDao guestDao = new GuestDao();
 		int delete =guestDao.guestdelete(guestVo);
-		if(delete==1) {	
+		if(delete==1) {	//성공
 			return "redirect:/guest/list";
-		}else {
+		}else {//실패
 			return"/passerror";
 		}
-		
+		//리스트에서 no값을 적어주어 포워드 해줌으로 no값을 여기서 포워드하지 않아도됨
 		
 		
 	}
