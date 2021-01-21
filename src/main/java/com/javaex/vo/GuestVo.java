@@ -6,7 +6,9 @@ public class GuestVo {
 	private String name, password, content, regdate;
 
 	//생성자
+	//일반
 	public GuestVo() {}
+	//리스트
 	public GuestVo(int no, String name, String password, String content, String regdate) {
 		this.no = no;
 		this.name = name;
@@ -14,13 +16,14 @@ public class GuestVo {
 		this.content = content;
 		this.regdate = regdate;
 	}
+	//등록
 	public GuestVo(String name, String password, String content) {
 		super();
 		this.name = name;
 		this.password = password;
 		this.content = content;
 	}
-	
+	//삭제
 	public GuestVo(int no, String password) {
 		super();
 		this.no = no;
